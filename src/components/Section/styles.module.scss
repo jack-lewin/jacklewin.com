@@ -1,0 +1,17 @@
+@import '../../functions.scss';
+
+.container {
+  flex-grow: 1;
+  max-width: 800px;
+  text-align: justify;
+}
+
+.heading {
+  margin: spacing(large) 0;
+  font-size: 1.8em;
+}
+
+.subheading {
+  margin: spacing(large) 0 0;
+  font-size: 1.2em;
+}

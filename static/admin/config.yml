@@ -1,0 +1,42 @@
+backend:
+  name: github
+  repo: jack-lewin/jacklewin.com
+
+publish_mode: editorial_workflow
+
+media_folder: static/img
+public_folder: /images
+
+display_url: https://jacklewin.com
+logo_url: https://jacklewin.com/img/favicon.png
+
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'src/content/blog'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'blog' }
+      # slug is automatically generated from the `title` field,
+      # so this is a way to define my own slug.
+      # see: https://www.netlifycms.org/docs/configuration-options/#slug
+      - { label: 'Slug', name: 'title', widget: 'string' }
+      - { label: 'Title', name: 'blog_title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - file: 'src/pages/about/index.md'
+        label: 'About'
+        name: 'about'
+        fields:
+          - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'about' }
+          - { label: 'Sort Order', name: 'sortOrder', widget: 'number' }
+          - { label: 'Section', name: 'section', widget: 'string' }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }

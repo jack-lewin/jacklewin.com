@@ -1,0 +1,10 @@
+@import '../../functions.scss';
+
+.container {
+  padding: spacing(small) 0;
+}
+
+.divider {
+  opacity: 0.2;
+  padding: 0 spacing(small);
+}

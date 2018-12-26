@@ -1,0 +1,9 @@
+@import "../../functions.scss";
+
+.divider {
+  width: 60%;
+  width: calc(100% - (400px + #{spacing(x-large)}));
+  margin: spacing(x-large) 0;
+  border-width: 0;
+  border-bottom-width: 1px;
+}

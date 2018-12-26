@@ -1,0 +1,55 @@
+/**
+ * Function to get spacing size.
+ */
+@function spacing($spacing) {
+  $spacing: inspect($spacing);
+
+  $spacingSizes: (
+    'x-large': 64px,
+    'large': 32px,
+    'medium': 16px,
+    'small': 8px,
+    'x-small': 4px,
+  );
+
+  @if map-has-key($spacingSizes, $spacing) {
+    @return map-get($spacingSizes, $spacing);
+  } @else {
+    @error "#{$spacing} isn't a valid size of spacing. Choose one of: #{map-keys($spacingSizes)}";
+    @return null;
+  }
+}
+
+/*
+* Helper method to return a brand palette colour.
+*/
+@function color($color, $offset: 100) {
+  $color: inspect($color);
+
+  $colors: (
+    'black': #434343,
+    'blue': #3273dc,
+    'pink': #d5008f,
+  );
+
+  @if map-has-key($colors, $color) {
+    $chosenColor: map-get($colors, $color);
+    $colorOffsets: (5, 20, 40, 60, 80, 100, 110, 120);
+
+    @if contains($colorOffsets, $offset) {
+      @if $offset > 100 {
+        @return mix(black, $chosenColor, $offset - 100);
+      } @else if $offset < 100 {
+        @return mix(white, $chosenColor, 100 - $offset);
+      }
+    } @else {
+      @error "The offset #{$offset} is not valid. Please use one of #{colorOffsets}";
+      @return null;
+    }
+
+    @return $chosenColor;
+  }
+
+  @error '"#{$color}" is not a valid color. Choose one of the allowed colors.';
+  @return null;
+}

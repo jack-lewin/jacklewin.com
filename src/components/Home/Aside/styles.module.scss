@@ -1,0 +1,7 @@
+@import '../../../functions.scss';
+
+.container {
+  display: flex;
+  flex-basis: 400px;
+  padding-left: spacing(large);
+}

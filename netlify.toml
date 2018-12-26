@@ -1,0 +1,21 @@
+[build]
+  publish = "public"
+  command = "yarn build"
+
+[build.environment]
+  YARN_VERSION = "1.12.3"
+  YARN_FLAGS = "--ignore-optional"
+ 
+ # only blog post from the old site...
+[[redirects]]
+  from = "/2018/getting-started-with-reason"
+  to = "/blog/getting-started-with-reason"
+  [redirects.headers]
+    X-From = "Netlify"
+
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    Link = '''
+    <https://fonts.googleapis.com/css?family=Source+Sans+Pro>; rel=preload; as=link; nopush'''
