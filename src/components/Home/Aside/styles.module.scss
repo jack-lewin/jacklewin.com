@@ -1,7 +1,12 @@
+@import '../../../mixins.scss';
 @import '../../../functions.scss';
 
 .container {
   display: flex;
-  flex-basis: 400px;
-  padding-left: spacing(large);
+
+  @include min-width(desktop) {
+    flex-basis: 400px;
+    max-width: 400px;
+    padding-left: spacing(large);
+  }
 }

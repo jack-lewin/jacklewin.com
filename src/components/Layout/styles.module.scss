@@ -1,13 +1,24 @@
+@import '../../mixins.scss';
 @import '../../functions.scss';
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
-  margin: spacing(x-large);
-  margin-bottom: spacing(medium);
+  margin: spacing(medium) spacing(large);
   padding: 0;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.2em;
   line-height: 1;
   color: color(black, 100);
+
+  @include min-width(desktop) {
+    margin: spacing(x-large);
+    margin-bottom: spacing(medium);
+  }
 }
 
 p,

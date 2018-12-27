@@ -1,0 +1,24 @@
+$breakpoints: (
+  tablet: 540px,
+  desktop: 960px,
+);
+
+@function breakpoint($width) {
+  @if type-of($width) == 'number' {
+    @return $width;
+  } @else if type-of($width) == 'string' {
+    @if map-has-key($breakpoints, $width) {
+      @return map-get($breakpoints, $width);
+    }
+
+    @error "No breakpoint called `#{$width}` exists";
+  }
+
+  @return null;
+}
+
+@mixin min-width($width) {
+  @media only screen and (min-width: #{breakpoint($width)}) {
+    @content;
+  }
+}

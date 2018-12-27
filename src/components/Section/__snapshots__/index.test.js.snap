@@ -5,6 +5,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Section
     content="<p>my dangerous html</p>"
+    justify={false}
     level={3}
     title="Title goes here"
   />,
@@ -31,7 +32,7 @@ ShallowWrapper {
           content="<p>my dangerous html</p>"
         />,
       ],
-      "className": "container",
+      "className": "container false",
     },
     "ref": null,
     "rendered": Array [
@@ -77,7 +78,7 @@ ShallowWrapper {
             content="<p>my dangerous html</p>"
           />,
         ],
-        "className": "container",
+        "className": "container false",
       },
       "ref": null,
       "rendered": Array [

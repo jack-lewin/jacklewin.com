@@ -11,7 +11,7 @@ const BlogPostTemplate = ({ title, content, contentComponent, helmet }) => {
     <Fragment>
       {helmet || ''}
       <Navbar breadcrumbs={[{ path: '/blog', text: 'Blog' }]} />
-      <Section level={1} title={title} content={<PostContent content={content} />} />
+      <Section level={1} title={title} content={<PostContent content={content} />} justify />
     </Fragment>
   );
 };
