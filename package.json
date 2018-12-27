@@ -11,7 +11,8 @@
     "lint": "eslint \"{gatsby-*.js,src/**/*.js}\"",
     "serve": "gatsby serve",
     "start": "yarn build && yarn serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest",
+    "test:watch": "yarn test --watch"
   },
   "dependencies": {
     "gatsby": "^2.0.66",
@@ -35,18 +36,36 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.4.1",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-test-renderer": "^16.7.0"
   },
   "devDependencies": {
     "@jack-lewin/eslint-config": "^1.0.1",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.10.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
+    "jest-prop-type-error": "^1.1.0",
     "prettier": "^1.15.3",
     "rimraf": "^2.6.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  },
+  "jest": {
+    "setupFiles": [
+      "jest-prop-type-error"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js",
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    }
+  }
 }

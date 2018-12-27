@@ -8,7 +8,7 @@ const Navbar = ({ breadcrumbs }) => (
     <Link to='/'>Jack Lewin</Link>
 
     {breadcrumbs.map(({ path, text }) => (
-      <Fragment>
+      <Fragment key={`breadcrumb-${path}-${text}`}>
         <span className={styles.divider}>/</span>
         <Link to={path}>{text}</Link>
       </Fragment>
