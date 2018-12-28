@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import homepageProps from '../prop-types/pages/index';
+import blogPageProps from '../prop-types/pages/blog';
 import Navbar from '../components/Navbar';
 import Layout from '../components/Layout';
 import Section from '../components/Section';
@@ -17,7 +17,7 @@ const BlogPage = ({ data }) => {
         content={
           <ul>
             {posts.map(({ node: { fields, frontmatter } = {} }) => (
-              <li>
+              <li key={`blog-${fields.slug}`}>
                 <Link to={fields.slug}>{frontmatter.blog_title}</Link>
               </li>
             ))}
@@ -28,7 +28,7 @@ const BlogPage = ({ data }) => {
   );
 };
 
-BlogPage.propTypes = homepageProps;
+BlogPage.propTypes = blogPageProps;
 
 export default BlogPage;
 
