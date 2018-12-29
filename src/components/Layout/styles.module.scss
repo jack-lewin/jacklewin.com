@@ -17,7 +17,6 @@ body {
 
   @include min-width(desktop) {
     margin: spacing(x-large);
-    margin-bottom: spacing(medium);
   }
 }
 
