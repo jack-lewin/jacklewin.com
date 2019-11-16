@@ -23,4 +23,6 @@ I also spent too much time scrolling through Twitter (I'm sure I'm not the only 
 
 In the past decade, the amount of content on the internet has skyrocketed. Once upon a time we might have posted on forums or...
 
+Once upon a time, we shared our thoughts on forums or personal blogs. Jump forward to today and you might still find that - but also Facebook, Twitter, Instagram, Hacker News, ..., the list goes on.
+
 https://twitter.com/JudsonCollier/status/1075142762553622528
