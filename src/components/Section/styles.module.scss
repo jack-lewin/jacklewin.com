@@ -1,3 +1,4 @@
+@import '../../mixins.scss';
 @import '../../functions.scss';
 
 .container {
@@ -17,4 +18,20 @@
 .subheading {
   margin: spacing(large) 0 0;
   font-size: 1.2em;
+}
+
+blockquote {
+  border-left: 3px solid color(black, 10);
+  padding: spacing(medium) spacing(large);
+  margin: spacing(large);
+
+  > p {
+    &:first-of-type{
+      margin-top: 0;
+    }
+
+    &:last-of-type{
+      margin-bottom: 0;
+    }
+  }
 }
