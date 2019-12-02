@@ -18,14 +18,17 @@ const IndexPage = ({ data }) => {
         <Section level={1} title={top[0].node.frontmatter.title} content={top[0].node.html} />
 
         <Aside>
-          {top.slice(1).map(section => (
-            <Section
-              key={section.node.frontmatter.title}
-              title={section.node.frontmatter.title}
-              content={section.node.html}
-              level={3}
-            />
-          ))}
+          {top
+            .filter(section => !section.node.frontmatter.hidden)
+            .slice(1)
+            .map(section => (
+              <Section
+                key={section.node.frontmatter.title}
+                title={section.node.frontmatter.title}
+                content={section.node.html}
+                level={3}
+              />
+            ))}
         </Aside>
       </Row>
 
@@ -37,24 +40,28 @@ const IndexPage = ({ data }) => {
           title='Writing'
           content={
             <ul>
-              {posts.map(({ node: { fields, frontmatter } = {} }) => (
-                <li key={`blog-${fields.slug}`}>
-                  <Link to={fields.slug}>{frontmatter.blog_title}</Link>
-                </li>
-              ))}
+              {posts
+                .filter(post => !post.node.frontmatter.hidden)
+                .map(({ node: { fields, frontmatter } = {} }) => (
+                  <li key={`blog-${fields.slug}`}>
+                    <Link to={fields.slug}>{frontmatter.blog_title}</Link>
+                  </li>
+                ))}
             </ul>
           }
         />
 
         <Aside>
-          {bottom.map(section => (
-            <Section
-              key={section.node.frontmatter.title}
-              title={section.node.frontmatter.title}
-              content={section.node.html}
-              level={3}
-            />
-          ))}
+          {bottom
+            .filter(section => !section.node.frontmatter.hidden)
+            .map(section => (
+              <Section
+                key={section.node.frontmatter.title}
+                title={section.node.frontmatter.title}
+                content={section.node.html}
+                level={3}
+              />
+            ))}
         </Aside>
       </Row>
     </Layout>
@@ -79,6 +86,7 @@ export const query = graphql`
           frontmatter {
             blog_title
             date(formatString: "MMMM DD, YYYY")
+            hidden
           }
         }
       }
@@ -92,6 +100,7 @@ export const query = graphql`
           html
           frontmatter {
             title
+            hidden
           }
         }
       }
@@ -105,6 +114,7 @@ export const query = graphql`
           html
           frontmatter {
             title
+            hidden
           }
         }
       }
