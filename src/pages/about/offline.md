@@ -6,5 +6,6 @@ section: top
 ---
 
 - Walking
-- Music
+- Listening
 - Cooking
+- [Reading](/reading)
