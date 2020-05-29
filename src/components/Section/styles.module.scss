@@ -20,6 +20,7 @@
   font-size: 1.2em;
 }
 
+/* purgecss ignore */
 blockquote {
   border-left: 3px solid color(black, 10);
   padding: spacing(medium) spacing(large);
@@ -34,4 +35,11 @@ blockquote {
       margin-bottom: 0;
     }
   }
+}
+
+/* purgecss ignore */
+pre {
+  background-color: color(black, 5);
+  margin-left: 1.5rem;
+  padding: 1.5rem;
 }
