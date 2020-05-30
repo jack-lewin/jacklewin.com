@@ -1,9 +1,9 @@
-const { title, description } = require('./config/meta');
+const { url, title, description } = require('./config/meta');
 const robots = require('./config/robots');
 
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://jacklewin.com',
+  URL: NETLIFY_SITE_URL = url,
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV,
 } = process.env;

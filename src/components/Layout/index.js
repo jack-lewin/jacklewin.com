@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import layoutProps from '../../prop-types/components/layout';
-
+import { url } from '../../../config/meta';
 import styles from './styles.module.scss';
 
 export const LayoutComponent = ({ data, children }) => (
@@ -24,9 +24,10 @@ export const LayoutComponent = ({ data, children }) => (
       <meta name='theme-color' content='#fff' />
 
       <meta property='og:title' content={data.site.siteMetadata.title} />
+      <meta property='og:site_name' content={data.site.siteMetadata.title} />
       <meta property='og:type' content='website' />
-      <meta property='og:image' content='/img/og-image.png' />
-      <meta property='og:url' content='/' />
+      <meta property='og:image' content={`${url}/img/favicon.png`} />
+      <meta property='og:url' content={data.site.siteMetadata.siteUrl} />
     </Helmet>
     <div className={styles.container}>{children}</div>
   </Fragment>
