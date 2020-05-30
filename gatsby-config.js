@@ -92,11 +92,12 @@ module.exports = {
         serialize: ({ site, allSitePage }) =>
           allSitePage.edges.map(edge => {
             const path = edge.node.path;
+            const isBlogArticle = path.indexOf('blog/') > -1 && path.endsWith('blog/') === false;
 
             return {
               url: site.siteMetadata.siteUrl + path,
-              changefreq: 'daily',
-              priority: path === '/' ? 1.0 : 0.7,
+              changefreq: isBlogArticle ? 'monthly' : 'daily',
+              priority: isBlogArticle ? 0.7 : 1.0,
             };
           }),
       },
